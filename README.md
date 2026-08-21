@@ -1,16 +1,20 @@
 # 🛡️ Network Intrusion Detection System (NIDS)
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg?style=for-the-badge&logo=python&logoColor=white)
-![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg?style=for-the-badge&logo=jupyter&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen.svg?style=for-the-badge)
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white" />
+  <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" />
+  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge" />
+</p>
 
-An intelligent, multi-tiered **Network Intrusion Detection System** that analyzes network connection records to classify traffic as either **Normal (0)** or an **Attack (1)** using classical AI heuristics, supervised machine learning, unsupervised clustering, and evolutionary algorithms.
+An intelligent Network Intrusion Detection System built using classical AI algorithms and machine learning techniques to classify network connections as **Normal (0)** or **Attack (1)**.
+
+> 🏆 **Top Result:** K-Nearest Neighbors ($k=1$) achieved **95.58% Test Accuracy** with a **0.9563 F1-Score**.
 
 ---
 
-## 👥 Authors & Project Info
+## 👥 Authors & Contributions
 
 * **Course:** Artificial Intelligence — Semester Project
 * **Group Members:**
@@ -19,42 +23,158 @@ An intelligent, multi-tiered **Network Intrusion Detection System** that analyze
 
 ---
 
-## 📌 Project Overview & Tasks
+## ⚡ Quick Start (TL;DR)
 
-The project evaluates 6,000 balanced connection records (3,000 normal, 3,000 attack) across 15 numeric traffic features. The implementation covers 5 sequential tasks:
+Get up and running in under 60 seconds:
 
-1. **Task 1 — Data Exploration (EDA):** Dataset statistics (`df.describe()`), class distribution bar plot, and feature histograms (`src_bytes`, `count`, `serror_rate`).
-2. **Task 2 — Simple Reflex Agent:** Baseline rule-based agent using handcrafted condition-action thresholds (**86.00% accuracy**).
-3. **Task 3 — Supervised Machine Learning:** Evaluated on an 80/20 stratified split (`StandardScaler` normalization):
-   * **K-Nearest Neighbors (KNN):** Best performance at $k=1$ (**95.58% accuracy**).
-   * **Gaussian Naïve Bayes:** Probabilistic baseline (**78.75% accuracy**).
-   * **Logistic Regression:** Linear classifier (**91.83% accuracy**).
-4. **Task 4 — Unsupervised K-Means Clustering:** Implemented from scratch in plain Python ($K=2$, **~86.60% accuracy**) paired with 2D PCA scatter plots.
-5. **Task 5 — Genetic Algorithm Feature Selection:** Plain Python binary GA (Roulette Wheel selection, single-point crossover, bit-flip mutation) to select an optimal 10-feature subset (**91.50% accuracy**).
+```bash
+# 1. Clone the repository
+git clone https://github.com/aazannoorkhuwaja/Network-Intrusion-Detection.git
+cd Network-Intrusion-Detection
+
+# 2. Install dependencies
+pip install notebook numpy pandas matplotlib scikit-learn
+
+# 3. Launch Jupyter & run notebook
+jupyter notebook AI_Final_Project.ipynb
+```
+
+---
+
+## 🧠 System Architecture Pipeline
+
+```mermaid
+flowchart TD
+    A[📡 Network Connection Logs] --> B[🔍 Task 1: Exploratory Data Analysis]
+    B --> C[⚙️ Task 2: Rule-Based Simple Reflex Agent]
+    B --> D[🤖 Task 3: Supervised Machine Learning]
+    B --> E[🌌 Task 4: Unsupervised K-Means Clustering]
+    B --> F[🧬 Task 5: Genetic Algorithm Feature Selection]
+
+    C --> G[Result: 86.00% Baseline Accuracy]
+    D --> H[Best: KNN k=1 - 95.58% Accuracy]
+    E --> I[Result: ~86.60% Accuracy + 2D PCA]
+    F --> J[Result: 10 Features - 91.50% Accuracy]
+```
 
 ---
 
 ## 📊 Benchmark Results Summary
 
-| Model / Method | Category | Accuracy | Precision | Recall | F1-Score | Key Takeaway |
+| Model / Algorithm | Category | Accuracy | Precision | Recall | F1-Score | Key Feature / Finding |
 |---|---|:---:|:---:|:---:|:---:|---|
-| **Simple Reflex Agent** | Rule-Based Heuristic | 86.00% | 0.8241 | 0.9160 | 0.8676 | Effective baseline; static thresholds can be bypassed. |
-| **Gaussian Naïve Bayes** | Supervised | 78.75% | 0.9320 | 0.6167 | 0.7420 | Suboptimal due to feature independence assumption violations. |
-| **Logistic Regression (All Features)** | Supervised | 91.83% | 0.9022 | 0.9383 | 0.9199 | Strong linear benchmark; highly interpretable. |
-| **K-Means Clustering ($K=2$)** | Unsupervised | ~86.60% | — | — | — | Strong natural grouping without seeing labels. |
-| **GA + Logistic Regression (10 Features)** | Evolutionary Optimization | 91.50% | 0.8992 | 0.9350 | 0.9167 | 33% feature reduction with only 0.33% loss in accuracy. |
-| **K-Nearest Neighbors ($k=1$)** | Supervised | **95.58%** | **0.9458** | **0.9667** | **0.9563** | **Top Performer**; captures complex non-linear boundaries. |
+| **Simple Reflex Agent** | Rule-Based Heuristic | 86.00% | 0.8241 | 0.9160 | 0.8676 | Condition-action baseline rules (`serror_rate`, `same_srv_rate`, `count`). |
+| **Gaussian Naïve Bayes** | Supervised (Probabilistic) | 78.75% | 0.9320 | 0.6167 | 0.7420 | Feature correlation violates independence assumption. |
+| **Logistic Regression (All Features)** | Supervised (Linear) | 91.83% | 0.9022 | 0.9383 | 0.9199 | Strong linear benchmark; fast & interpretable. |
+| **K-Means Clustering ($K=2$)** | Unsupervised | ~86.60% | — | — | — | Natural high-dimensional cluster grouping without labels. |
+| **GA + Logistic Regression (10 Features)** | Evolutionary Optimization | 91.50% | 0.8992 | 0.9350 | 0.9167 | 33% feature reduction with negligible (0.33%) accuracy loss. |
+| **K-Nearest Neighbors ($k=1$)** | Supervised (Non-Linear) | **95.58%** | **0.9458** | **0.9667** | **0.9563** | **Best Classifier**; learns non-linear threat boundaries. |
 
 ---
 
-## 📁 Repository Structure
+## 📋 Comprehensive Task Breakdown
+
+<details>
+<summary><b>🔍 Task 1 — Data Exploration & Visualizations</b></summary>
+<br>
+
+* Loads 6,000 connection records (3,000 Normal / 3,000 Attack).
+* Generates descriptive statistics (`df.describe()`) and class balance bar charts.
+* Plots per-class overlay histograms for `src_bytes`, `count`, and `serror_rate` to locate attack decision boundaries.
+</details>
+
+<details>
+<summary><b>⚙️ Task 2 — Simple Reflex Agent Baseline</b></summary>
+<br>
+
+* Evaluates each packet record individually against fixed rules without internal state:
+  * `serror_rate > 0.5` $\rightarrow$ Attack (1)
+  * `same_srv_rate < 0.4` $\rightarrow$ Attack (1)
+  * `count > 200` $\rightarrow$ Attack (1)
+  * Otherwise $\rightarrow$ Normal (0)
+* Achieves **86.00% accuracy** on the full 6,000-sample dataset.
+</details>
+
+<details>
+<summary><b>🤖 Task 3 — Supervised Machine Learning Models</b></summary>
+<br>
+
+* 80/20 Stratified Split (`random_state=42`) with `StandardScaler` feature normalization.
+* **KNN ($k \in \{1,3,5,7,9,11\}$):** Peak accuracy of **95.58%** at $k=1$.
+* **Gaussian Naïve Bayes:** Evaluates probabilistic baseline.
+* **Logistic Regression:** Linear classifier achieving **91.83%** accuracy.
+</details>
+
+<details>
+<summary><b>🌌 Task 4 — Custom K-Means Clustering & 2D PCA</b></summary>
+<br>
+
+* Custom K-Means ($K=2$) built from scratch in plain Python without using external clustering libraries.
+* Groups unlabelled data into 2 clusters matching ground-truth with **~86.60% accuracy**.
+* Visualizes high-dimensional data in 2D using Principal Component Analysis (PCA).
+</details>
+
+<details>
+<summary><b>🧬 Task 5 — Genetic Algorithm Feature Selection</b></summary>
+<br>
+
+* Custom binary Genetic Algorithm (15-bit binary chromosome).
+* Implements Roulette Wheel Selection, Single-Point Crossover (0.8 rate), and Bit-Flip Mutation (0.05 rate).
+* Identifies a 10-feature subset yielding **91.50% accuracy** (reducing features by 33% with minimal performance loss).
+</details>
+
+---
+
+## 🛠️ Detailed Setup & Installation Guide
+
+### 1. Prerequisites Check
+Ensure **Python 3.8+** is installed:
+```bash
+python3 --version   # Linux / macOS
+python --version    # Windows
+```
+
+---
+
+### 2. Virtual Environment Setup
+
+**Linux / macOS:**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**Windows (Command Prompt):**
+```cmd
+python -m venv venv
+venv\Scripts\activate
+```
+
+**Windows (PowerShell):**
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+
+---
+
+### 3. Install Required Dependencies
+```bash
+pip install notebook numpy pandas matplotlib scikit-learn
+```
+
+---
+
+### 4. Verify Project File Structure
+
+Ensure the directory matches the expected layout before running:
 
 ```text
 Network-Intrusion-Detection/
 │
-├── AI_Final_Project.ipynb       # Main Jupyter notebook containing code for Tasks 1–5
+├── AI_Final_Project.ipynb       # Jupyter notebook with code for Tasks 1–5
 ├── Final_Report_Project.pdf     # 9-page comprehensive project report (PDF format)
-├── project_statement.txt        # Official project assignment statement & guidelines
+├── project_statement.txt        # Official course assignment statement & guidelines
 ├── README.md                    # Project documentation and step-by-step setup guide
 ├── .gitignore                   # Git configuration rules
 └── dataset/                     # Local dataset directory
@@ -63,110 +183,33 @@ Network-Intrusion-Detection/
 
 ---
 
-## 🚀 Step-by-Step Setup & Testing Guide (Zero to Running)
+## 🧪 Testing & Execution
 
-Follow these easy steps to get the environment configured and run the project from scratch.
-
-### Step 1 — Prerequisites Check
-Ensure you have **Python 3.8 or higher** installed. You can check your Python version by opening a terminal and running:
-
-```bash
-python3 --version   # Linux / macOS
-python --version    # Windows
-```
-
----
-
-### Step 2 — Clone the Repository
-
-Clone this repository to your local machine using Git:
-
-```bash
-git clone https://github.com/aazannoorkhuwaja/Network-Intrusion-Detection.git
-cd Network-Intrusion-Detection
-```
-
----
-
-### Step 3 — Create & Activate a Virtual Environment
-
-Creating a virtual environment ensures clean, isolated dependencies.
-
-* **Linux / macOS:**
-  ```bash
-  python3 -m venv venv
-  source venv/bin/activate
-  ```
-
-* **Windows (Command Prompt):**
-  ```cmd
-  python -m venv venv
-  venv\Scripts\activate
-  ```
-
-* **Windows (PowerShell):**
-  ```powershell
-  python -m venv venv
-  .\venv\Scripts\Activate.ps1
-  ```
-
----
-
-### Step 4 — Install Required Dependencies
-
-Install Jupyter and all essential data science & ML libraries in one command:
-
-```bash
-pip install notebook numpy pandas matplotlib scikit-learn
-```
-
----
-
-### Step 5 — Verify Dataset Location
-
-Ensure the dataset file is placed in the `dataset/` subfolder at the root of the repository:
-
-```text
-Network-Intrusion-Detection/
-└── dataset/
-    └── network_traffic.csv
-```
-
----
-
-### Step 6 — Launch & Test the Notebook
-
-1. **Launch Jupyter Notebook:**
+1. Start Jupyter Notebook:
    ```bash
    jupyter notebook
    ```
-   *(This will automatically open your default browser at `http://localhost:8888`)*
-
-2. **Open the Notebook:**
-   In the Jupyter file navigator, click on **`AI_Final_Project.ipynb`**.
-
-3. **Run & Test Everything:**
-   * **Automated Run:** Go to the top menu and select **`Kernel → Restart & Run All`**. This will execute all cells sequentially from Task 1 through Task 5.
-   * **Step-by-Step Execution:** Click on the first cell and press **`Shift + Enter`** to execute cell-by-cell.
-
-4. **Verify Output:**
-   * Plots (histograms, bar charts, PCA scatter plots) will display directly beneath the code cells.
-   * Evaluation tables and metrics (Accuracy, Confusion Matrices, Precision, Recall, F1) will print cleanly in the output cells.
+2. Open **`AI_Final_Project.ipynb`** in the Jupyter web dashboard (`http://localhost:8888`).
+3. To run all tasks from start to finish, select from the top menu:
+   ```text
+   Kernel → Restart & Run All
+   ```
+4. Confirm plots, confusion matrices, and metrics print directly under each code cell.
 
 ---
 
-## 🛠️ Troubleshooting
+## 🔧 Troubleshooting Guide
 
-| Issue | Cause | Easy Solution |
+| Common Issue | Likely Cause | Resolution |
 |---|---|---|
-| `jupyter: command not found` | Jupyter is not installed in the active environment | Run `pip install notebook` |
-| `ModuleNotFoundError: No module named 'pandas'` | Missing Python libraries | Run `pip install numpy pandas matplotlib scikit-learn` |
-| `FileNotFoundError: dataset/network_traffic.csv` | Dataset missing or mislocated | Ensure `network_traffic.csv` is inside the `dataset/` directory |
-| Port 8888 already in use | Another Jupyter instance is running | Run `jupyter notebook --port 8889` |
-| Execution permissions (Windows PowerShell) | Script execution policy disabled | Run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` |
+| `jupyter: command not found` | Jupyter not installed in active environment | Run `pip install notebook` |
+| `ModuleNotFoundError` | Missing Python libraries | Run `pip install numpy pandas matplotlib scikit-learn` |
+| `FileNotFoundError` | Dataset mislocated | Ensure `network_traffic.csv` is inside the `dataset/` directory |
+| Port 8888 occupied | Jupyter session already running | Run `jupyter notebook --port 8889` |
+| PowerShell script block | Restricted execution policy | Run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` |
 
 ---
 
-## 📄 License & Acknowledgments
+## 📜 License & Citation
 
-Developed as part of the Artificial Intelligence Course (Fast University). All data, code, and PDF report assets are available under standard open project academic usage.
+Developed for academic research and educational purposes as part of the Artificial Intelligence course.
