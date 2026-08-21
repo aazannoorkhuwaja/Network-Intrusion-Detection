@@ -36,7 +36,7 @@ cd Network-Intrusion-Detection
 pip install notebook numpy pandas matplotlib scikit-learn
 
 # 3. Launch Jupyter & run notebook
-jupyter notebook AI_Final_Project.ipynb
+jupyter notebook Network_Intrusion_Detection.ipynb
 ```
 
 ---
@@ -172,13 +172,13 @@ Ensure the directory matches the expected layout before running:
 ```text
 Network-Intrusion-Detection/
 │
-├── AI_Final_Project.ipynb       # Jupyter notebook with code for Tasks 1–5
-├── Final_Report_Project.pdf     # 9-page comprehensive project report (PDF format)
-├── project_statement.txt        # Official course assignment statement & guidelines
-├── README.md                    # Project documentation and step-by-step setup guide
-├── .gitignore                   # Git configuration rules
-└── dataset/                     # Local dataset directory
-    └── network_traffic.csv      # Cleaned network connection dataset (6,000 records)
+├── Network_Intrusion_Detection.ipynb        # Main Jupyter notebook with code for Tasks 1–5
+├── Network_Intrusion_Detection_Report.pdf   # Comprehensive 9-page project report (PDF)
+├── Project_Specification.txt                # Official course assignment guidelines
+├── README.md                                # Project documentation & step-by-step setup guide
+├── .gitignore                              # Git configuration rules
+└── dataset/                                # Local dataset directory
+    └── network_traffic.csv                 # Cleaned network connection dataset (6,000 records)
 ```
 
 ---
@@ -189,7 +189,7 @@ Network-Intrusion-Detection/
    ```bash
    jupyter notebook
    ```
-2. Open **`AI_Final_Project.ipynb`** in the Jupyter web dashboard (`http://localhost:8888`).
+2. Open **`Network_Intrusion_Detection.ipynb`** in the Jupyter web dashboard (`http://localhost:8888`).
 3. To run all tasks from start to finish, select from the top menu:
    ```text
    Kernel → Restart & Run All
