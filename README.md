@@ -1,4 +1,4 @@
-# 🛡️ Network Intrusion Detection System (NIDS)
+# Network Intrusion Detection System (NIDS)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -10,20 +10,20 @@
 
 An intelligent Network Intrusion Detection System built using classical AI algorithms and machine learning techniques to classify network connections as **Normal (0)** or **Attack (1)**.
 
-> 🏆 **Top Result:** K-Nearest Neighbors ($k=1$) achieved **95.58% Test Accuracy** with a **0.9563 F1-Score**.
+> **Key Performance Highlight:** K-Nearest Neighbors ($k=1$) achieved **95.58% Test Accuracy** with a **0.9563 F1-Score**.
 
 ---
 
-## 👥 Authors & Contributions
+## Authors & Contributions
 
 * **Course:** Artificial Intelligence — Semester Project
 * **Group Members:**
-  * **Azaan Noor Khuwaja** *(Roll # 24P-0706)* — EDA, Reflex Agent, Supervised Learning (Tasks 1, 2, 3)
-  * **M. Uzair Shoaib** *(Roll # 24P-0507)* — Custom K-Means, PCA Visualizations, Genetic Algorithm (Tasks 4, 5)
+  * **Azaan Noor Khuwaja** *(Roll # 24P-0706)* — Exploratory Data Analysis, Simple Reflex Agent, Supervised Machine Learning (Tasks 1, 2, 3)
+  * **M. Uzair Shoaib** *(Roll # 24P-0507)* — Custom K-Means Clustering, PCA Visualizations, Genetic Algorithm Feature Selection (Tasks 4, 5)
 
 ---
 
-## ⚡ Quick Start (TL;DR)
+## Quick Start (TL;DR)
 
 Get up and running in under 60 seconds:
 
@@ -41,15 +41,15 @@ jupyter notebook Network_Intrusion_Detection.ipynb
 
 ---
 
-## 🧠 System Architecture Pipeline
+## System Architecture Pipeline
 
 ```mermaid
 flowchart TD
-    A[📡 Network Connection Logs] --> B[🔍 Task 1: Exploratory Data Analysis]
-    B --> C[⚙️ Task 2: Rule-Based Simple Reflex Agent]
-    B --> D[🤖 Task 3: Supervised Machine Learning]
-    B --> E[🌌 Task 4: Unsupervised K-Means Clustering]
-    B --> F[🧬 Task 5: Genetic Algorithm Feature Selection]
+    A[Network Connection Logs] --> B[Task 1: Exploratory Data Analysis]
+    B --> C[Task 2: Rule-Based Simple Reflex Agent]
+    B --> D[Task 3: Supervised Machine Learning]
+    B --> E[Task 4: Unsupervised K-Means Clustering]
+    B --> F[Task 5: Genetic Algorithm Feature Selection]
 
     C --> G[Result: 86.00% Baseline Accuracy]
     D --> H[Best: KNN k=1 - 95.58% Accuracy]
@@ -59,7 +59,7 @@ flowchart TD
 
 ---
 
-## 📊 Benchmark Results Summary
+## Benchmark Results Summary
 
 | Model / Algorithm | Category | Accuracy | Precision | Recall | F1-Score | Key Feature / Finding |
 |---|---|:---:|:---:|:---:|:---:|---|
@@ -72,10 +72,10 @@ flowchart TD
 
 ---
 
-## 📋 Comprehensive Task Breakdown
+## Comprehensive Task Breakdown
 
 <details>
-<summary><b>🔍 Task 1 — Data Exploration & Visualizations</b></summary>
+<summary><b>Task 1 — Data Exploration & Visualizations</b></summary>
 <br>
 
 * Loads 6,000 connection records (3,000 Normal / 3,000 Attack).
@@ -84,7 +84,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>⚙️ Task 2 — Simple Reflex Agent Baseline</b></summary>
+<summary><b>Task 2 — Simple Reflex Agent Baseline</b></summary>
 <br>
 
 * Evaluates each packet record individually against fixed rules without internal state:
@@ -96,7 +96,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>🤖 Task 3 — Supervised Machine Learning Models</b></summary>
+<summary><b>Task 3 — Supervised Machine Learning Models</b></summary>
 <br>
 
 * 80/20 Stratified Split (`random_state=42`) with `StandardScaler` feature normalization.
@@ -106,7 +106,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>🌌 Task 4 — Custom K-Means Clustering & 2D PCA</b></summary>
+<summary><b>Task 4 — Custom K-Means Clustering & 2D PCA</b></summary>
 <br>
 
 * Custom K-Means ($K=2$) built from scratch in plain Python without using external clustering libraries.
@@ -115,7 +115,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>🧬 Task 5 — Genetic Algorithm Feature Selection</b></summary>
+<summary><b>Task 5 — Genetic Algorithm Feature Selection</b></summary>
 <br>
 
 * Custom binary Genetic Algorithm (15-bit binary chromosome).
@@ -125,7 +125,7 @@ flowchart TD
 
 ---
 
-## 🛠️ Detailed Setup & Installation Guide
+## Setup & Installation Guide
 
 ### 1. Prerequisites Check
 Ensure **Python 3.8+** is installed:
@@ -183,7 +183,7 @@ Network-Intrusion-Detection/
 
 ---
 
-## 🧪 Testing & Execution
+## Testing & Execution
 
 1. Start Jupyter Notebook:
    ```bash
@@ -198,7 +198,7 @@ Network-Intrusion-Detection/
 
 ---
 
-## 🔧 Troubleshooting Guide
+## Troubleshooting Guide
 
 | Common Issue | Likely Cause | Resolution |
 |---|---|---|
@@ -210,6 +210,6 @@ Network-Intrusion-Detection/
 
 ---
 
-## 📜 License & Citation
+## License & Citation
 
 Developed for academic research and educational purposes as part of the Artificial Intelligence course.
