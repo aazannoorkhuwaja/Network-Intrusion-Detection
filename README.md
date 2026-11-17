@@ -8,9 +8,11 @@
   <img src="https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge" />
 </p>
 
-An intelligent Network Intrusion Detection System built using classical AI algorithms and machine learning techniques to classify network connections as **Normal (0)** or **Attack (1)**.
+An academic network intrusion detection project comparing rule-based detection and machine learning methods for classifying network connections as **Normal (0)** or **Attack (1)**.
 
-> **Key Performance Highlight:** K-Nearest Neighbors ($k=1$) achieved **95.58% Test Accuracy** with a **0.9563 F1-Score**.
+> **Reported project benchmark:** K-Nearest Neighbors ($k=1$) achieved **95.58% test accuracy** and **0.9563 F1-score** on the project's course dataset. These are documented experimental results, not a production deployment claim.
+
+[**Notebook and visual outputs**](Network_Intrusion_Detection.ipynb) · [**Project report**](Network_Intrusion_Detection_Report.pdf) · [**Benchmark comparison**](#benchmark-results-summary) · [**Team contributions**](#authors--contributions)
 
 ---
 
@@ -23,9 +25,9 @@ An intelligent Network Intrusion Detection System built using classical AI algor
 
 ---
 
-## Quick Start (TL;DR)
+## Quick Start
 
-Get up and running in under 60 seconds:
+**Dataset required:** The notebook reads `dataset/network_traffic.csv`, but that file is **not included** in this public repository. Obtain the original course dataset separately and place it at that path before running the notebook. Without the dataset, the code will raise `FileNotFoundError` and the published benchmark cannot be independently reproduced from this repository alone.
 
 ```bash
 # 1. Clone the repository
@@ -35,7 +37,8 @@ cd Network-Intrusion-Detection
 # 2. Install dependencies
 pip install notebook numpy pandas matplotlib scikit-learn
 
-# 3. Launch Jupyter & run notebook
+# 3. Confirm the original course dataset is at dataset/network_traffic.csv
+# 4. Launch Jupyter after the dataset is available
 jupyter notebook Network_Intrusion_Detection.ipynb
 ```
 
@@ -167,7 +170,7 @@ pip install notebook numpy pandas matplotlib scikit-learn
 
 ### 4. Verify Project File Structure
 
-Ensure the directory matches the expected layout before running:
+The publicly tracked files are shown below. The `dataset/` directory must be created locally and populated with the original course CSV before running the notebook:
 
 ```text
 Network-Intrusion-Detection/
@@ -177,8 +180,8 @@ Network-Intrusion-Detection/
 ├── Project_Specification.txt                # Official course assignment guidelines
 ├── README.md                                # Project documentation & step-by-step setup guide
 ├── .gitignore                              # Git configuration rules
-└── dataset/                                # Local dataset directory
-    └── network_traffic.csv                 # Cleaned network connection dataset (6,000 records)
+└── dataset/                                # Must be supplied locally (not committed)
+    └── network_traffic.csv                 # Original course dataset (not public here)
 ```
 
 ---
@@ -189,12 +192,13 @@ Network-Intrusion-Detection/
    ```bash
    jupyter notebook
    ```
-2. Open **`Network_Intrusion_Detection.ipynb`** in the Jupyter web dashboard (`http://localhost:8888`).
-3. To run all tasks from start to finish, select from the top menu:
+2. Verify the original dataset is present at `dataset/network_traffic.csv` (not included in the public clone).
+3. Open **`Network_Intrusion_Detection.ipynb`** in the Jupyter web dashboard (`http://localhost:8888`).
+4. To run all tasks from start to finish, select from the top menu:
    ```text
    Kernel → Restart & Run All
    ```
-4. Confirm plots, confusion matrices, and metrics print directly under each code cell.
+5. Confirm plots, confusion matrices, and metrics print directly under each code cell. The published figures are reported results until independently reproduced with the original dataset.
 
 ---
 
@@ -204,7 +208,7 @@ Network-Intrusion-Detection/
 |---|---|---|
 | `jupyter: command not found` | Jupyter not installed in active environment | Run `pip install notebook` |
 | `ModuleNotFoundError` | Missing Python libraries | Run `pip install numpy pandas matplotlib scikit-learn` |
-| `FileNotFoundError` | Dataset mislocated | Ensure `network_traffic.csv` is inside the `dataset/` directory |
+| `FileNotFoundError` | Original dataset missing or mislocated | The course CSV is not included; obtain it separately and place it at `dataset/network_traffic.csv` |
 | Port 8888 occupied | Jupyter session already running | Run `jupyter notebook --port 8889` |
 | PowerShell script block | Restricted execution policy | Run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` |
 
